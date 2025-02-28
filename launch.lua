@@ -46,13 +46,8 @@ end
 -- 设置默认终端程序
 function M.get_default_prog()
     if utils.is_windows then
-        -- 检查是否为 Windows 11 或更高版本
-        local version = wezterm.target_triple
-        if version:find("windows11") then
-            return {"powershell.exe"}
-        else
-            return {"cmd.exe"}
-        end
+        -- Windows 11 以上默认使用 PowerShell，没有找到判断版本的方法
+        return {"powershell.exe"}
     else
         return {"bash"}
     end

@@ -27,7 +27,11 @@ end
 
 -- 获取路径中的最后一个组件（文件名或目录名）
 function M.get_path_last_component(path)
-    return string.gsub(path, "(.*[/\\])(.*)", "%2")
+    if not path then return "?" end
+    -- 先获取路径的最后一个组件
+    local name = string.match(path, "[^/\\]+$") or path
+    -- 移除文件后缀（如果有）
+    return string.match(name, "^(.+)%.%w+$") or name
 end
 
 return M
