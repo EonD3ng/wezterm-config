@@ -15,6 +15,7 @@ local config = {
         brightness = 1.0,
     },
     
+    font = wezterm.font('JetBrainsMonoNL Nerd Font Mono'),
     font_size = 14.0,
 
     default_prog = launch.get_default_prog(),
